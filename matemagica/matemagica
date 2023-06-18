@@ -1,0 +1,63 @@
+// Classe Matemagica
+class Matemagica {
+    // Método de adição
+    adicao(a, b) {
+      return a + b;
+    }
+  
+    // Método de subtração
+    subtracao(a, b) {
+      return a - b;
+    }
+  
+    // Método de divisão
+    divisao(a, b) {
+      if (b === 0) {
+        throw new Error("Divisão por zero não é permitida!");
+      }
+      return a / b;
+    }
+  
+    // Método de multiplicação
+    multiplicacao(a, b) {
+      return a * b;
+    }
+  }
+  
+  // Testes unitários utilizando Jest
+  describe("Matemagica", () => {
+    let matemagica;
+  
+    // Configuração inicial antes de cada teste
+    beforeEach(() => {
+      matemagica = new Matemagica();
+    });
+  
+    // Teste para o método de adição
+    it("Deve retornar a soma correta de dois números", () => {
+      expect(matemagica.adicao(2, 3)).toBe(5);
+    });
+  
+    // Teste para o método de subtração
+    it("Deve retornar a diferença correta entre dois números", () => {
+      expect(matemagica.subtracao(5, 2)).toBe(3);
+    });
+  
+    // Teste para o método de divisão
+    it("Deve retornar o quociente correto da divisão entre dois números", () => {
+      expect(matemagica.divisao(10, 2)).toBe(5);
+    });
+  
+    // Teste para o método de divisão por zero
+    it("Deve lançar um erro ao tentar dividir por zero", () => {
+      expect(() => matemagica.divisao(10, 0)).toThrowError(
+        "Divisão por zero não é permitida!"
+      );
+    });
+  
+    // Teste para o método de multiplicação
+    it("Deve retornar o produto correto de dois números", () => {
+      expect(matemagica.multiplicacao(4, 3)).toBe(12);
+    });
+  });
+  
